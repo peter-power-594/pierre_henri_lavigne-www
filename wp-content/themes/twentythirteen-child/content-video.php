@@ -35,7 +35,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_en' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_en' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_single() ) : ?>
 		<div class="entry-content">
@@ -63,7 +63,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_fr' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_fr' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_single() ) : ?>
 		<div class="entry-content">
@@ -92,7 +92,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_ja' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_ja' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_single() ) : ?>
 		<div class="entry-content">

@@ -37,10 +37,10 @@ class TwentyThirteenApp {
 		# Ne pas charger la police par défaut du thème
 		wp_dequeue_style( 'twentythirteen-fonts' );
 		$base_uri = get_stylesheet_directory_uri();
-		wp_enqueue_script( 'jquery-vintage', 'https://cdn.jsdelivr.net/gh/rendro/vintageJS@1.1.5/dist/jquery.vintage.min.js', [ 'jquery' ], [ '1.1.5' ], true );
-		wp_enqueue_script( 'jquery-musketeer', $base_uri . '/assets/js/jquery.musketeer-bundle.min.js', [ 'jquery-vintage' ], [ '0.5.0' ], true );
+		wp_enqueue_script( 'jquery-vintage', 'https://cdn.jsdelivr.net/gh/rendro/vintageJS@1.1.5/dist/jquery.vintage.min.js', [ 'jquery' ], '1.1.5', true );
+		wp_enqueue_script( 'jquery-musketeer', $base_uri . '/assets/js/jquery.musketeer-bundle.min.js', [ 'jquery-vintage' ], '0.5.0', true );
 		wp_add_inline_script( 'jquery-musketeer', 'musketeer.options = { debug: /dev/.test( window.location.host ) ? 1 : 0, i18n: { base: "en-US", langs: [ "en-US", "fr-FR", "ja-JP" ], selector:".i18n-%lang", menu: "#i18n-switch" } }' );
-		wp_enqueue_script( 'jquery-2013', $base_uri . '/assets/js/jquery-2013.js', [ 'jquery-musketeer' ], [ '0.0.1' ], true );
+		wp_enqueue_script( 'jquery-2013', $base_uri . '/assets/js/jquery-2013.js', [ 'jquery-musketeer' ], '0.5.0', true );
 	}
 
 

@@ -12,13 +12,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+<?php if ( is_single() && ! is_search() ) : ?>
+	<header class="entry-header">
+	<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
+		<div class="entry-thumbnail">
+			<?php the_post_thumbnail( 'large' ); ?>
+			<?php the_content(); ?>
+		</div>
+	<?php endif; ?>
+	</header>
+<?php endif; ?>
+
 	<div id="post_en" lang="en">
 		<header class="entry-header">
-			<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
-			<div class="entry-thumbnail">
-				<?php the_post_thumbnail( 'large' ); ?>
-			</div>
-			<?php endif; if ( is_singular() ) : ?>
+			<?php if ( is_singular() ) : ?>
 			<h1 class="entry-title"><?php the_field( 'title_en' ); ?></h1>
 			<?php else : ?>
 			<h1 class="entry-title">
@@ -31,7 +38,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_en' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_en' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">
@@ -46,11 +53,7 @@
 
 	<div id="post_fr" lang="fr">
 		<header class="entry-header">
-			<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
-			<div class="entry-thumbnail">
-				<?php the_post_thumbnail( 'large' ); ?>
-			</div>
-			<?php endif; if ( is_singular() ) : ?>
+			<?php if ( is_singular() ) : ?>
 			<h1 class="entry-title"><?php the_field( 'title_fr' ); ?></h1>
 			<?php else : ?>
 			<h1 class="entry-title">
@@ -63,7 +66,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_fr' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_fr' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">
@@ -79,11 +82,7 @@
 
 	<div id="post_ja" lang="ja">
 		<header class="entry-header">
-			<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
-			<div class="entry-thumbnail">
-				<?php the_post_thumbnail( 'large' ); ?>
-			</div>
-			<?php endif; if ( is_singular() ) : ?>
+			<?php if ( is_singular() ) : ?>
 			<h1 class="entry-title"><?php the_field( 'title_ja' ); ?></h1>
 			<?php else : ?>
 			<h1 class="entry-title">
@@ -96,7 +95,7 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php the_field( 'excerpt_ja' ); ?>
+			<?php echo mmd()->markdown2html( get_field( 'excerpt_ja' ) ); ?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">
@@ -108,11 +107,5 @@
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 	</div><!-- #post_ja -->
-
-	<?php if ( is_singular() && ! is_search() ) : ?>
-	<div class="entry-content">
-		<?php the_content(); ?>
-	</div>
-	<?php endif; ?>
 
 </article><!-- #post -->

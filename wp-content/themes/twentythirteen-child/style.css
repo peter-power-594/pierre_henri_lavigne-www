@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Syne', sans-serif;
     font-weight: 400;
 }
+h4 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
 .site-title {
 	display: block;
 }
@@ -68,28 +72,35 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 .en #post_en,
-.en #side_en,
 .fr #post_fr,
-.fr #side_fr,
-.ja #post_ja,
-.ja #side_ja {
+.ja #post_ja {
     display: block;
 }
 .en #post_fr,
 .en #post_ja,
-.en #widget_fr,
-.en #widget_ja,
 .fr #post_en,
 .fr #post_ja,
-.fr #widget_en,
-.fr #widget_ja,
 .ja #post_en,
-.ja #post_fr,
-.ja #widget_en,
-.ja #widget_fr {
+.ja #post_fr {
     display: none;
 }
 
+.en #widget_en,
+.fr #widget_fr,
+.ja #widget_ja {
+	position: relative !important;
+	left: 0;
+}
+.en #widget_fr,
+.en #widget_ja,
+.fr #widget_en,
+.fr #widget_ja,
+.ja #widget_en,
+.ja #widget_fr {
+	position: absolute !important;
+	left: -100%;
+	left: -100vw;
+}
 /**
  * =SIDEBAR
  ****************************************************************************/
@@ -168,6 +179,14 @@ h1, h2, h3, h4, h5, h6 {
     object-position: center;
 */
 }
+.js .entry-thumbnail .wp-post-image {
+	opacity: 0;
+	transition: opacity 0.1s ease-out;
+}
+.js .entry-thumbnail .vintage {
+	opacity: 1;
+}
+
 .site {
     max-width: 100%;
 }
@@ -209,6 +228,8 @@ h1, h2, h3, h4, h5, h6 {
  ****************************************************************************/
 
 .entry-thumbnail video,
+.entry-thumbnail iframe,
+.entry-thumbnail .wp-video,
 .entry-content video {
 	display: block;
 	width: 100%;
@@ -219,14 +240,17 @@ h1, h2, h3, h4, h5, h6 {
 .entry-thumbnail {
 	position: relative;
 }
-.entry-thumbnail video {
+.entry-thumbnail video,
+.entry-thumbnail iframe,
+.entry-thumbnail .wp-video,
+.entry-thumbnail .wp-video-shortcode {
 	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: 100% !important;
+	height: 100% !important;
 }
 @media (max-width: 643px) {
     .entry-thumbnail {
@@ -235,6 +259,7 @@ h1, h2, h3, h4, h5, h6 {
         padding: calc(56.25% + 20px) 0 0 0;
     }
 }
+.single .format-standard.hentry,
 .single .format-gallery.hentry,
 .single .format-video.hentry {
     padding-top: 0;
