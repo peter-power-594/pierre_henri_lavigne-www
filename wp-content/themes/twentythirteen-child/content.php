@@ -16,7 +16,7 @@
 	<header class="entry-header">
 	<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
+			<?php the_post_thumbnail( 'ogimage' ); ?>
 			<?php the_content(); ?>
 		</div>
 	<?php endif; ?>
@@ -38,7 +38,13 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php echo mmd()->markdown2html( get_field( 'excerpt_en' ) ); ?>
+		<?php
+			if ( function_exists( 'mmd' ) ) :
+				echo mmd()->markdown2html( get_field( 'excerpt_en' ) );
+			else :
+				echo '<p>' . get_field( 'excerpt_en' ) . '</p>';
+			endif;
+		?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">
@@ -66,7 +72,13 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php echo mmd()->markdown2html( get_field( 'excerpt_fr' ) ); ?>
+		<?php
+			if ( function_exists( 'mmd' ) ) :
+				echo mmd()->markdown2html( get_field( 'excerpt_fr' ) );
+			else :
+				echo '<p>' . get_field( 'excerpt_fr' ) . '</p>';
+			endif;
+		?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">
@@ -95,7 +107,13 @@
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
 		<div class="entry-summary">
-			<?php echo mmd()->markdown2html( get_field( 'excerpt_ja' ) ); ?>
+		<?php
+			if ( function_exists( 'mmd' ) ) :
+				echo mmd()->markdown2html( get_field( 'excerpt_ja' ) );
+			else :
+				echo '<p>' . get_field( 'excerpt_ja' ) . '</p>';
+			endif;
+		?>
 		</div><!-- .entry-summary -->
 		<?php if ( ! is_search() && is_singular() ) : ?>
 		<div class="entry-content">

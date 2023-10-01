@@ -9,7 +9,6 @@ class TwentyThirteenApp {
 		add_filter( 'wpcf7_autop_or_not', '__return_false' );
 		add_action( 'acf/input/admin_head', array( $this, 'my_acf_admin_head' ) );
 		add_action( 'after_setup_theme', array( $this, 'theme_ready' ) );
-
 	}
 
 
@@ -38,7 +37,7 @@ class TwentyThirteenApp {
 		wp_dequeue_style( 'twentythirteen-fonts' );
 		$base_uri = get_stylesheet_directory_uri();
 		wp_enqueue_script( 'jquery-vintage', 'https://cdn.jsdelivr.net/gh/rendro/vintageJS@1.1.5/dist/jquery.vintage.min.js', [ 'jquery' ], '1.1.5', true );
-		wp_enqueue_script( 'jquery-musketeer', $base_uri . '/assets/js/jquery.musketeer-bundle.min.js', [ 'jquery-vintage' ], '0.5.0', true );
+		wp_enqueue_script( 'jquery-musketeer', $base_uri . '/assets/js/jquery.musketeer-bundle.min.js', [ 'jquery-vintage' ], '0.5.1', true );
 		wp_add_inline_script( 'jquery-musketeer', 'musketeer.options = { debug: /dev/.test( window.location.host ) ? 1 : 0, i18n: { base: "en-US", langs: [ "en-US", "fr-FR", "ja-JP" ], selector:".i18n-%lang", menu: "#i18n-switch" } }' );
 		wp_enqueue_script( 'jquery-2013', $base_uri . '/assets/js/jquery-2013.js', [ 'jquery-musketeer' ], '0.5.0', true );
 	}
@@ -53,6 +52,7 @@ class TwentyThirteenApp {
 	public function theme_ready() {
 		remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 		remove_action( 'in_admin_header', 'wp_global_styles_render_svg_filters' );
+		add_image_size( 'ogimage', 1600, 900, array( 'center', 'center' ) );
 	}
 
 

@@ -13,7 +13,7 @@
 	<header class="entry-header">
 	<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
-			<?php the_post_thumbnail( 'large' ); ?>
+			<?php the_post_thumbnail( 'ogimage' ); ?>
 			<?php the_content(); ?>
 		</div>
 	<?php endif; ?>

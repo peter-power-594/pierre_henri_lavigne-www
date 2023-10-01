@@ -13,7 +13,7 @@
 		<header class="entry-header">
 			<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() && is_single() ) : ?>
 			<div class="entry-thumbnail">
-				<?php the_post_thumbnail( 'large' ); ?>
+				<?php the_post_thumbnail( 'ogimage' ); ?>
 			</div>
 			<?php endif; if ( is_single() ) : ?>
 			<h1 class="entry-title"><?php the_field( 'title_en' ); ?></h1>
