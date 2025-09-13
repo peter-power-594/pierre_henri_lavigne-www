@@ -1,0 +1,39 @@
+/*
+ Theme Name: McLuhan Child
+ Template: mcluhan
+ Text Domain: mcluhanchild
+ Version: 1.0.0
+ Author: Pierre-Henri Lavigne
+ Author URI: https://www.pierre-henri-lavigne.info
+ License: GNU General Public License version 2.0
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ Requires PHP: 5.4
+ Tested up to: 6.8
+*/
+body .site-header {
+	display: flex;
+	flex-direction: column;
+}
+.site-title {
+	order: 4;
+}
+.site-description {
+	order: 5;
+}
+@media screen and (min-width: 1380px) {
+	.section-inner {
+		max-width: 860px;
+	}
+}
+.featured-image {
+	height: 30vh;
+	overflow: hidden;
+	max-height: 450px;
+}
+.site-header {
+	z-index: 9998;
+}
+.social-menu a[href*="linuxrocks.online"]:before {
+	content: "\f4f6";
+	font-family: 'Font Awesome 5 Brands';
+}
